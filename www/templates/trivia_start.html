@@ -1,0 +1,24 @@
+<ion-view cache-view="false">
+    <ion-nav-title>
+      <p style="display:inline;">Trivia</p>
+    </ion-nav-title>
+  <ion-content class="fondotesoro">
+
+  	<div class="center">
+  		<img class="tesoro" ng-src="{{infoTrivia.image}}">
+	    <h3 class="titulotesoro">{{infoTrivia.title}}</h3>
+	    <p class="pistatesoro">{{infoTrivia.subtitle}}</p>
+	    <hr class="hrtesoro">
+	    <p class="textotesoro pad1">{{infoTrivia.description}}</p>
+	    <!--<p class="textotesoro pad2">{{infoTrivia.description2}}</p>-->
+	    <br>
+
+	    <a ng-show="questions" class="button colortesoro triviainicio" href="#/app/trivia">
+		  Comenzar
+		</a>
+		<br>
+		<br>
+	</div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,45 @@
+<ion-view view-title="Atrás" cache-view="false">
+  <ion-content class="">
+
+      <div class="azulperfil"></div>
+      <img class="fondop" ng-src="{{model.contact.picture_url}}">
+
+
+      
+      <img class="login perfilblanc" src="img/diag_new.png">
+      <img class="imagencontacto2"  ng-src="{{model.contact.picture_url}}">
+      <h3 class="tituloPerfil perfilh3">{{model.contact.name}}</h3>
+       <div id="datosperfil" class="hecontact">
+      <form id="formProfile">
+      <div class="list fondoblanco">
+        <input class="textlogin usertfont perfilinput azulcargo" ng-model="model.contact.job_title" value="{{model.contact.job_title}}" ng-disabled="true">
+        <div class="lineaseparador3"></div>
+        
+        <input class="textlogin usertfont perfilinput griscargo" ng-model="model.contact.company" value="{{model.contact.company}}" ng-disabled="true">
+        <div class="lineaseparador3"></div>
+        
+        <a target="_blank" href="mailto:{{model.contact.email}}" style="color: #565657;">
+	        <div class="contiene"> 
+	            <img class="taminfo2 more2" src="img/p1.png">
+	          	<input class="textlogin usertfont perfilinput2 griscargo" ng-model="model.contact.email" value="{{model.contact.email}}" ng-disabled="true">
+	        </div>
+        </a>
+
+        <div class="lineaseparador3"></div>
+        
+        <a href="tel:{{model.contact.phone}}" style="color: #565657;">
+	        <div class="contiene"> <img class="taminfo2 more1" src="img/p2.png">
+	        	<input class="textlogin usertfont perfilinput2 griscargo" ng-model="model.contact.phone" value="{{model.contact.phone}}" ng-disabled="true"></div>
+	        <div class="lineaseparador3"></div>
+        </a>
+
+        <a href="#" myclick="openURL({{model.contact.linkedin}})" style="color: #565657;">
+	        <div class="contiene"> <img class="taminfo2 more1" src="img/p3.png">
+	        	<input class="textlogin usertfont perfilinput2 griscargo" ng-model="model.contact.linkedin" value="{{model.contact.linkedin}}" ng-disabled="true" myclick="openURL(model.contact.linkedin)"></div>
+	        <div class="lineaseparador3"></div>
+        </a>
+      </div>
+      </form>
+      </div>
+  </ion-content>
+</ion-view>

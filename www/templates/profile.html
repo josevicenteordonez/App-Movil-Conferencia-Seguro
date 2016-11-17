@@ -1,0 +1,66 @@
+<ion-view view-title="Perfil" cache-view="false">
+  <ion-content>
+
+      <div class="azulperfil"></div>
+      <img class="fondop" id="profileBackground" ng-src="{{profile.picture_url}}">
+
+      <img class="uploadPhoto" src="img/icono-camara.png" myclick="choosePhoto()">
+
+      <img class="login perfilblanc" src="img/diag_new.png">
+      <img class="imagencontacto2" id="profilePicture" ng-src="{{profile.picture_url}}" myclick="choosePhoto()">
+
+      <h3 class="titulotesoro nombrePerfil perfilh3">{{profile.name}}</h3>
+      <div id="datosperfil">
+      <form id="formProfile">
+
+      <input type="hidden" ng-model="profile.picture_url" value="{{profile.picture_url}}">
+
+      <div class="list fondoblanco">
+        <input class="textlogin usertfont perfilinput azulcargo sinfondo" ng-model="profile.job_title" value="{{profile.job_title}}" ng-disabled="true">
+        <div class="lineaseparador3"></div>
+        
+        <input class="textlogin usertfont perfilinput griscargo sinfondo" ng-model="profile.company" value="{{profile.company}}" ng-disabled="true">
+        <div class="lineaseparador3"></div>
+        
+        <div class="contiene"> <img class="taminfo2 more2 smallicon" src="img/p1.png">
+        <input class="textlogin usertfont perfilinput2 griscargo sinfondo" ng-model="profile.email" value="{{profile.email}}" ng-disabled="true"></div>
+        <div class="lineaseparador3"></div>
+        
+        <div class="contiene"> <img class="taminfo2 more1 smallicon" src="img/p2.png">
+        <input class="textlogin usertfont perfilinput2 griscargo sinfondo" ng-model="profile.phone" value="{{profile.phone}}" ng-disabled="true"></div>
+        
+        <div class="lineaseparador3"></div>
+        
+        <div class="contiene"> 
+          <img class="taminfo2 more1 smallicon" src="img/p3.png">
+          <img class="icon-edit" src="img/icon-edit.png">
+          <input class="textlogin usertfont perfilinput2 griscargo sinfondo" ng-model="profile.linkedin" value="{{profile.linkedin}}">
+        </div>
+        
+        <div class="lineaseparador3"></div>
+        
+        <label class="item">
+          <button class="button colortesoro loginbtn" type="submit" myclick="saveProfile()">Guardar</button>
+        </label>
+
+        <img id="imagenPerfil" style="text-align: center">
+
+      </div>
+      </form>
+      </div>
+  </ion-content>
+</ion-view>
+
+
+<!--
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="loadProfile()">
+    </ion-refresher>
+
+      <div class="contiene"> <img class="taminfo" src="img/p1.png"></div>
+     <div class="contiene"> <img class="taminfo" src="img/p2.png"></div>
+     <div class="contiene"> <img class="taminfo" src="img/p3.png"></div>
+
+ -->

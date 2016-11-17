@@ -1,0 +1,33 @@
+<ion-view title="La Caja del Tesoro" cache-view="false">
+    <ion-nav-title>
+      <p style="display:inline;">La Caja del Tesoro</p>
+      <!--<a style="display:inline; position: absolute; right: 10px; text-decoration: underline;"> Pistas</a>-->
+    </ion-nav-title>
+  <ion-content class="fondotesoro">
+
+  	<div class="center">
+
+  		<!--Primera pista -->
+		<img ng-if="currentPage == 1 && clue.clue_id != 9999" class="tesoro" src="img/tesoro.png">
+		<h3 ng-if="currentPage == 1 && clue.clue_id != 9999" class="titulotesoro">La Caja del Tesoro</h3>
+
+		<!-- Desde la segunda pista hasta la última -->
+  		<h2 ng-if="currentPage > 1 && currentPage <= clues_to_win" class="pistatile">#<span class="numberpist">{{currentPage}}</span></h2>
+  		<img ng-if="currentPage > 1 && currentPage <= clues_to_win" class="tesoro" src="img/fondopista.png">
+
+  		<!-- Cuando ya se gana la busqueda del tesoro -->
+  		<img ng-if="currentPage > clues_to_win || clue.clue_id == 9999" class="tesoro" src="img/fondowin.png">
+	    <h3 ng-if="currentPage > clues_to_win || clue.clue_id == 9999" class="titulotesoro">¡Felicitaciones!</h3>
+
+	    <!--<p class="pistatesoro">Te tocó la pista #{{clue.clue_id}}</p>-->
+	    <hr class="hrtesoro">
+	    <p ng-if="clue.clue_id != 9999" class="textotesoro pad2 pad22">{{clue.name}} - Código de pista: {{clue.clue_id}}</p>
+	    <p ng-if="currentPage > clues_to_win || clue.clue_id == 9999" class="textotesoro pad2 pad22">Completaste toda las pistas, consectetur adipiscing elit lorem ipsum.</p>
+
+	    <button ng-if="currentPage < clues_to_win  || clue.clue_id != 9999" class="button colortesoro fonttesoro" myclick="scanQR(currentPage + 1)">
+		  Escanear <i class="ion-ios-arrow-right"></i>
+		</button>
+	</div>
+
+  </ion-content>
+</ion-view>

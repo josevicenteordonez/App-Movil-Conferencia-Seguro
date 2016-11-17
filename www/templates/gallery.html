@@ -1,0 +1,36 @@
+<ion-view view-title="Galería" cache-view="false">
+<ion-content class="has-header">
+<div class="contenedorgaleria">
+<div class="containertitleg"><p class="titlegallery">{{galleryData.title}}</p></div>
+<ion-tabs class="tabs-positive tabs-icon-top specialtabs">
+<ion-tab class="tab1" title="Home" icon-on="feetball" icon-off="feetballoff">
+<div class="contenedorlibros galeriatop">
+	<ion-list>
+	<!--<div ng-repeat="book in books"> -->
+	<div ng-repeat="pic in pictures">
+		<ion-item class="item-stable libros2">
+		<img class="imagengaleria" ng-src="{{pic.src}}">
+		<p class="descripcionlibro">{{pic.description}}</p>
+			<a class="descargarlibro" myclick="downloadFile('{{pic.src}}')">
+				<i class="ion-ios-arrow-right"></i>  Descargar
+			</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="enviarlibro" target="_blank" href="mailto:?subject=Foco en el Cliente&body={{pic.src}}">
+				<i class="ion-ios-arrow-right"></i>  Enviar por Email
+			</a>
+			
+			<div class="clear"></div>
+			<div class="lineaseparador"></div>
+		</ion-item>
+	</div>
+</ion-list>
+</div>
+</ion-tab>
+<ion-tab class="tab2" title="About" icon-on="feetball2" icon-off="feetball2off">
+	<ion-gallery ion-gallery-items="pictures" ion-gallery-row="3" ion-gallery-toggle="false"></ion-gallery>
+</ion-tab>
+<div class="linetabs"></div>
+</ion-tabs>
+</div>
+</ion-content>
+</ion-view>

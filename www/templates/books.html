@@ -1,0 +1,36 @@
+<ion-view view-title="Presentaciones" cache-view="false">
+  <ion-content class="has-header">
+<!--
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="loadBooks()">
+    </ion-refresher>
+-->
+<div class="fondolearning">
+  <div class="contenedorlibros">
+  <h1 class="titulolearning">¡La Convención empieza ahora!</h1>
+  <h2 class="subtitulolearning">Descargá o enviate por e-mail las presentaciones y empezá a capacitarte para el evento.
+</h2>
+  </div>
+</div>
+      <div class="contenedorlibros">
+      <ion-list>
+        <div ng-repeat="book in books">
+          <ion-item class="item-stable libros2">
+              <p class="titulolibro">{{book.title}}</p>
+              <p class="descripcionlibro">{{book.description}}</p>
+              <a class="descargarlibro" myclick="downloadFile('{{book.filename}}')">
+                <i class="ion-ios-arrow-right"></i>  Descargar PDF
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="enviarlibro" target="_blank" href="mailto:?subject=Foco en el Cliente&body={{book.filename}}">
+                <i class="ion-ios-arrow-right"></i>  Enviar por Email
+              </a>
+              <div class="clear"></div>
+              <div class="lineaseparadorLibros"></div>
+          </ion-item>
+        </div>
+      </ion-list>
+      </div>
+  </ion-content>
+</ion-view>

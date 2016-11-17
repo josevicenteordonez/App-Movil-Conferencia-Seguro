@@ -1,0 +1,42 @@
+<ion-view view-title="Trivia">
+  <ion-content class="content">
+    <div class="containertrivia">
+    	 
+		<div ng-show="questions" layout="column" ng-cloak="" class="progressCirculardemoBasicUsage" ng-repeat="question in filteredQuestions">
+
+			<md-content layout-padding="" class="backclock">
+			<div layout="row" layout-sm="column" layout-align="space-around">
+			  <p class="numberclock {{currentColorText}}">{{seconds}}</p>
+			  <p class="numberclock2">{{question.order}} / {{questions.length}}</p>
+			  <img class="fondoclock" src="img/fondo.png">
+			  
+			  <md-progress-circular md-mode="determinate"  class="{{currentColor}}" md-diameter="150" value="{{determinateValue}}"></md-progress-circular>
+
+			</div>
+			</md-content>
+
+			<p class="textquestion">{{question.question}}</p>
+			<ion-radio class="radioresponse coloranwser" name="{{question.question}}"
+			  				ng-repeat="a in question.answers" 
+			  				ng-model="question.selected_answer"
+			  				ng-value="{{a.id}}"
+			  				ng-click="goTo(currentPage + 1);"><span class="letterbox">{{$index+1}}</span>{{a.answer}}</ion-radio>
+
+		<!--	<button type="button" data-ng-click="runTimer()">runTimer</button>
+		    <button type="button" data-ng-click="stopTimer()">stopTimer</button>
+		    <button type="button" data-ng-click="resetTimer()">resetTimer</button>
+		-->
+
+		</div>
+
+	  	<div class="center" ng-if="!questions">
+	  		<img class="tesoro" ng-src="{{thanksInfo.url}}">
+		    <h3 class="titulotesoro">{{thanksInfo.message}}</h3>
+		    <hr class="hrtesoro">
+		    <p class="textotesoro pad2 pad22">{{thanksInfo.message2}}</p>
+		</div>
+
+    </div>
+  </ion-content>
+
+</ion-view>

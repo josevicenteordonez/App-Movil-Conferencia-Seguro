@@ -1,0 +1,70 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" is-enabled="menuEnabled"> <!-- ng-if="checkUser()" -->
+    <ion-header-bar class="bar-stable">
+    <div class="backlogoevento">
+      <img class="logoevento" src="img/logoevento.png">
+      </div>
+    </ion-header-bar>
+    <ion-content class="colormenu menu-space">
+        <hr class="hrmenu">
+      <ion-list class="listmenu">
+        <ion-item class="menupad menu-item" menu-close href="#/app/events">
+        <img class="menuimg" src="img/icon1.png"><p class="pmenu">Agenda</p>
+        </ion-item>
+        <ion-item class="menupad menu-item" menu-close href="#/app/books">
+          <img class="menuimg" src="img/icon2.png"><p class="pmenu">Presentaciones</p>
+        </ion-item>
+        <ion-item class="menupad menu-item" menu-close href="#/app/contacts">
+          <img class="menuimg" src="img/icon3.png" ><p class="pmenu">Participantes</p>
+        </ion-item>
+        <ion-item class="menupad menu-item" menu-close href="#/app/information" >
+          <img class="menuimg" src="img/icon4.png" ><p class="pmenu">Informacion Útil</p>
+        </ion-item>
+        <ion-item class="menupad menu-item" menu-close href="#/app/trivia_start">
+          <img class="menuimg" src="img/icon5.png"><p class="pmenu">Trivia</p>
+        </ion-item>
+        <ion-item class="menupad menu-item" menu-close href="#/app/gallery">
+          <img class="menuimg" src="img/icon6.png"><p class="pmenu">Galería</p>
+        </ion-item>
+        <ion-item class="menupad menu-item" menu-close href="#/app/survey">
+          <img class="menuimg" src="img/icon7.png"><p class="pmenu">Encuesta</p>
+        </ion-item>
+        <!--<ion-item class="menupad menu-item" menu-close href="#/app/treasure">
+          <img class="menuimg" src="img/icon8.png "><p class="pmenu">Busqueda del Tesoro</p>
+        </ion-item>
+        -->
+      </ion-list>
+
+      <div class="contenedorbotones">
+
+      <img id="profileThumb" class="menuimg menuimg2" ng-src="{{picture_url}}">
+      <a class="botonmenu" menu-close href="#/app/profile">
+        <p class="pmenu menuesp helvetica">
+          <i class="ion-ios-arrow-right"></i>  Mi Perfil</p>
+      </a>
+      <div class="separadorMenu"></div>
+      <a class="botonmenu" menu-close href="#/app/logout">
+        <p class="pmenu menuesp helvetica">
+          <i class="ion-ios-arrow-right"></i>  Salir</p>
+      </a>
+      </div>
+		<div class="menufooterlogo">
+			<img src="img/logo_bottom_menu.png">
+		</div>
+		
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

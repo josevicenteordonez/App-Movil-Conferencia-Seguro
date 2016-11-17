@@ -1,0 +1,113 @@
+<ion-view view-title="Encuesta" cache-view="false">
+<ion-content class="" ng-class="questions == null ? 'fondotesoro' : ''"}>
+<!--
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="loadSurvey()">
+    </ion-refresher>
+-->
+
+<div ng-if="!questions" class="center">
+
+  <img class="tesoro" ng-src="{{congrats.img_url}}">
+  <h3  class="titulotesoro">{{congrats.message}}</h3>
+  
+</div>
+
+<h1 class="titulotesoro opcional">{{surveyData.title}}</h1>
+<div id="contenedortitle">
+  <h2 class="surveyt2">{{surveyData.description}}</h2>
+</div>
+  <div id="contenedorlinea">
+    <div ng-if="questions" id="linea" class="lineaopcional"></div>
+    <form name="surveyForm">
+
+      <div class="survey_question" ng-repeat="q in questions" ng-if="$first">
+
+       <p>{{q.question}}</p>
+       <ion-list>
+
+       <ion-checkbox class="checkboxencuesta" ng-if="q.type == 'multiple'" 
+       ng-repeat="a in q.answers" 
+       ng-model="a.selected">
+       {{a.answer}}</ion-checkbox>
+
+       <ion-radio   name="{{q.question}}"
+       ng-if="q.type == 'simple'" 
+       ng-repeat="a in q.answers" 
+       ng-model="q.selected_answer"
+       ng-value="{{a.id}}">
+       {{a.answer}}</ion-radio>   
+
+       <label     name="q."
+       class="item item-input labeltext" 
+       ng-if="q.type == 'open'" 
+       ng-repeat="a in q.answers">
+       <textarea placeholder="Escribí tu comentario acá..." class="textencuesta" rows="10" ng-model="a.text"></textarea>
+     </label>
+
+   </ion-list>
+   <div class="lineaseparador"></div>
+ </div>
+       <div class="survey_question" ng-repeat="q in questions" ng-if="$middle">
+
+       <p>{{q.question}}</p>
+       <ion-list>
+
+       <ion-checkbox class="checkboxencuesta" ng-if="q.type == 'multiple'" 
+       ng-repeat="a in q.answers" 
+       ng-model="a.selected">
+       {{a.answer}}</ion-checkbox>
+
+       <ion-radio   name="{{q.question}}"
+       ng-if="q.type == 'simple'" 
+       ng-repeat="a in q.answers" 
+       ng-model="q.selected_answer"
+       ng-value="{{a.id}}">
+       {{a.answer}}</ion-radio>   
+
+       <label     name="q."
+       class="item item-input labeltext" 
+       ng-if="q.type == 'open'" 
+       ng-repeat="a in q.answers">
+       <textarea placeholder="Escribí tu comentario acá..." class="textencuesta colorarea" rows="10" ng-model="a.text"></textarea>
+     </label>
+
+   </ion-list>
+   <div class="lineaseparador"></div>
+ </div>
+      <div class="survey_question" ng-repeat="q in questions" ng-if="$last">
+
+       <p>{{q.question}}</p>
+       <ion-list>
+
+       <ion-checkbox class="checkboxencuesta" ng-if="q.type == 'multiple'" 
+       ng-repeat="a in q.answers" 
+       ng-model="a.selected">
+       {{a.answer}}</ion-checkbox>
+
+       <ion-radio   name="{{q.question}}"
+       ng-if="q.type == 'simple'" 
+       ng-repeat="a in q.answers" 
+       ng-model="q.selected_answer"
+       ng-value="{{a.id}}">
+       {{a.answer}}</ion-radio>   
+
+       <label     name="q."
+       class="item item-input labeltextArea" 
+       ng-if="q.type == 'open'" 
+       ng-repeat="a in q.answers">
+       <textarea placeholder="Escribí tu comentario acá..." class="textencuesta" rows="10" ng-model="a.text"></textarea>
+     </label>
+
+   </ion-list>
+ </div> 
+
+ <label ng-show="questions" class="item" style="width:100%; margin:0; padding:20px 0;">
+  <button class="button button-block button-positive colorencuesta" type="submit" myclick="sendResults()">Enviar encuesta</button>
+</label>
+
+</form>
+
+</ion-content>
+</ion-view>

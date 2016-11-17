@@ -1,0 +1,29 @@
+<ion-view view-title="Login" id="loginview" cache-view="false">
+  <ion-content class="fondologin">
+
+    <div ng-if="loginData">
+
+      <img class="login" src="img/fondologin.png">
+      <h3 class="titulotesoro titulologin">{{loginData.title}}</h3>
+      <form>
+        <div class="list">
+          <label class="item item-input user">
+            <span class="input-label iconlogin"><img class="taminfo3" src="img/l1.png"></span>
+            <input type="text" class="textlogin usertfont helvetica" placeholder="{{loginData.email}}" ng-model="formData.email">
+          </label>
+          <label class="item item-input password">
+            <span class="input-label iconlogin secondclass"><img class="taminfo3" src="img/l2.png"></span>
+            <input type="password" class="textlogin usertfont helvetica" placeholder="{{loginData.password}}" ng-model="formData.password">
+          </label>
+          <label class="item">
+            <button class="button colortesoro loginbtn helvetica" type="submit" myclick="login()">{{loginData.submit}}</button>
+          </label>
+        </div>
+      </form>
+
+      <p class="footercontra" ng-click="goToPage('forgot_password')"> > Olvidé mi contraseña</p>
+
+    </div>
+
+  </ion-content>
+</ion-view>

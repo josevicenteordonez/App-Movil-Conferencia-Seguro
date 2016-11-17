@@ -1,0 +1,189 @@
+<ion-view view-title="Agenda">
+  
+  <ion-content class="has-header">
+<!--
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="loadEvents()">
+    </ion-refresher>
+-->
+    <ion-tabs class="tabs-positive tabs-icon-top colortabs">
+
+      <!-- ****** DIA #1 ***** -->
+      <ion-tab title="Día 1">
+
+        <ion-list class="agendatop">
+
+          <!-- 1er item -->
+          <div class="itembottom firsttop" ng-repeat="event in events | filter:{date_start: firstDay}" ng-if="$first">
+
+            <ion-item class="item-stable" ng-click="toggleGroup(event)" ng-class="{active: isGroupShown(event)}">  
+
+              <p class="phora">
+                <i class="icon ion-clock"></i> {{event.date_start | date:'h:mm'}} a {{event.date_end | date:'h:mm'}}
+              </p>
+
+              <div class="lineatimeline3"></div>
+
+              <img class="icon-events" src="img/icon-event-first.png">
+
+              <div class="lineatimeline"></div>
+              &nbsp;
+              <p class="pagenda">
+                <span class="estiloevento alinearagenda">{{event.name}}</span>
+              </p>
+
+            </ion-item>
+
+            <ion-item class="item-accordion borderline" ng-show="isGroupShown(event)">{{event.description}}
+
+              <div class="espacio"></div>
+
+            </ion-item>
+
+          </div>
+
+          <!-- Items del medio -->
+          <div class="itembottom" ng-repeat="event in events | filter:{date_start: firstDay}" ng-if="$middle">
+            
+            <ion-item class="item-stable" ng-click="toggleGroup(event)" ng-class="{active: isGroupShown(event)}">
+            
+              <div class="lineatimeline2"></div>
+            
+              <div class="lineatop"></div>        
+            
+              <p class="phora pahora2">
+                <i class="icon ion-clock"></i> {{event.date_start | date:'h:mm'}} a {{event.date_end | date:'h:mm'}}
+              </p>
+            
+              <div class="lineatimeline3"></div>
+            
+              <img class="icon-events" ng-src="{{isGroupShown(event) ? 'img/icon-minus.png' : 'img/icon-plus.png'}}">
+            
+              <div class="lineatimeline"></div>
+              &nbsp;
+              <p class="pagenda">
+                <span class="estiloevento alinearagenda">{{event.name}}</span>
+              </p>
+            
+            </ion-item>
+            
+            <ion-item class="item-accordion borderline" ng-show="isGroupShown(event)">{{event.description}}
+              
+              <div class="espacio"></div>
+            
+            </ion-item>
+          
+          </div>
+
+          <!-- Último item -->
+          <div class="itembottom" ng-repeat="event in events | filter:{date_start: firstDay}" ng-if="$last">
+            
+            <ion-item class="item-stable lastitem" ng-click="toggleGroup(event)" ng-class="{active: isGroupShown(event)}">
+              
+              <div class="lineatimeline2"></div>
+              
+              <div class="lineatop"></div>      
+              
+              <p class="phora pahora2">
+              
+                <i class="icon ion-clock"></i> {{event.date_start | date:'h:mm'}} a {{event.date_end | date:'h:mm'}}
+              
+              </p>
+              
+              <img class="icon-events" ng-src="{{isGroupShown(event) ? 'img/icon-minus.png' : 'img/icon-plus.png'}}">
+              &nbsp;
+              
+              <p class="pagenda">
+                <span class="estiloevento alinearagenda">{{event.name}}</span>
+              </p>
+
+            </ion-item>
+
+            <ion-item class="item-accordion borderline lastborder" ng-show="isGroupShown(event)">{{event.description}}
+          
+              <div class="espacio"></div>
+          
+            </ion-item>
+          
+            <div class="espacio"></div>
+          
+          </div>
+
+        </ion-list>
+
+      </ion-tab>
+
+      <!-- ****** DIA #2 ***** -->
+      <ion-tab title="Día 2">
+
+        <ion-list class="agendatop">
+      
+          <div class="itembottom firsttop" ng-repeat="event in events | filter:{date_start: secondDay}" ng-if="$first">
+            
+            <ion-item class="item-stable" ng-click="toggleGroup(event)" ng-class="{active: isGroupShown(event)}">     
+              
+              <p class="phora"><i class="icon ion-clock"></i> {{event.date_start | date:'h:mm'}} a {{event.date_end | date:'h:mm'}}</p>
+              
+              <div class="lineatimeline3"></div>
+              
+              <img class="icon-events" src="img/icon-event-first.png">
+              
+              <div class="lineatimeline"></div>
+              &nbsp;
+              
+              <p class="pagenda"><span class="estiloevento alinearagenda">{{event.name}}</span></p>
+            </ion-item>
+            
+            <ion-item class="item-accordion borderline" ng-show="isGroupShown(event)">{{event.description}}
+              
+              <div class="espacio"></div>
+            </ion-item>
+          
+          </div>
+
+          <div class="itembottom" ng-repeat="event in events | filter:{date_start: secondDay}" ng-if="$middle">
+          <ion-item class="item-stable"
+          ng-click="toggleGroup(event)"
+          ng-class="{active: isGroupShown(event)}">
+          <div class="lineatimeline2"></div>
+          <div class="lineatop"></div>       
+          <p class="phora pahora2"><i class="icon ion-clock"></i> {{event.date_start | date:'h:mm'}} a {{event.date_end | date:'h:mm'}}</p>
+          <div class="lineatimeline3"></div>
+                    <img class="icon-events" ng-src="{{isGroupShown(event) ? 'img/icon-minus.png' : 'img/icon-plus.png'}}">
+          <div class="lineatimeline"></div>
+          &nbsp;
+          <p class="pagenda"><span class="estiloevento alinearagenda">{{event.name}}</span></p>
+          </ion-item>
+          <ion-item class="item-accordion borderline"
+          ng-show="isGroupShown(event)">
+          {{event.description}}
+          <div class="espacio"></div>
+          </ion-item>
+          </div>
+
+          <div class="itembottom" ng-repeat="event in events | filter:{date_start: secondDay}" ng-if="$last">
+          <ion-item class="item-stable lastitem"
+          ng-click="toggleGroup(event)"
+          ng-class="{active: isGroupShown(event)}">
+          <div class="lineatimeline2"></div>
+          <div class="lineatop"></div>      
+          <p class="phora pahora2"><i class="icon ion-clock"></i> {{event.date_start | date:'h:mm'}} a {{event.date_end | date:'h:mm'}}</p>
+                        <img class="icon-events" ng-src="{{isGroupShown(event) ? 'img/icon-minus.png' : 'img/icon-plus.png'}}">
+          &nbsp;
+          <p class="pagenda"><span class="estiloevento alinearagenda">{{event.name}}</span></p>
+          </ion-item>
+          <ion-item class="item-accordion borderline lastborder"
+          ng-show="isGroupShown(event)">
+          {{event.description}}
+          <div class="espacio"></div>
+          </ion-item>
+          <div class="espacio"></div>
+          </div>
+
+        </ion-list>
+      </ion-tab>
+
+    </ion-tabs>
+  </ion-content>
+</ion-view>

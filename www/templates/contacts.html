@@ -1,0 +1,60 @@
+<ion-view view-title="">
+      <ion-nav-title>
+      <p id="titulocontacto" style="display:inline;">Participantes</p>
+     <a id="logobusqueda" ng-click="showSearch()"><i class="ion-search"></i></a> 
+
+    <div id="search" class="bar bar-header item-input-inset ocultar">
+      <label class="item-input-wrapper">
+        <input  autofocus class="fondosearch" type="search" placeholder="Buscar" ng-model="model.search.name">
+                  
+      </label>
+
+    </div>
+<a class="close ocultar" id="cerrarbusqueda" ng-click="closeSearch()"><i class="ion-close"></i></a>
+    </ion-nav-title>
+  <ion-content class="has-header">
+<!--
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="loadContacts()">
+    </ion-refresher>
+-->
+      <div class="espacio"></div>
+      <ion-list>
+          <div  ng-repeat="contact in model.contacts | filter:model.search">
+          <ion-item class="item-stable itemcot">
+
+            <a href="#/app/contact/{{contact.id}}">
+              <img class="imagencontacto" ng-if="contact.picture_url.length > 0" ng-src="{{contact.picture_url}}">
+            </a>
+            <div class="contenedorcontacto">
+
+              <a href="#/app/contact/{{contact.id}}">
+                <p class="nombrepersona  estiloevento">{{contact.name}}</p>
+              </a>
+              <p class="nombrecargo diflinea topcargo">{{contact.job_title}}</p>
+              <p class="nombrecompania diflinea">{{contact.company}}</p>
+              <p class="tipousuario diflinea" ng-if="contact.user_type.toLowerCase() == 'orador'">&nbsp;| {{contact.user_type}}</p>
+              
+              <a class="mail1 iconosparticipantes" target="_blank" href="mailto:{{contact.email}}">
+                <img src="img/160929_LaCaja-App_Icons_lruiz-03.png">
+              </a>
+              
+              <div class="separadoriconos"></div>
+              
+              <a class="linked1 iconosparticipantes" href="#" myclick="openURL(contact.linkedin)">
+                <img src="img/160929_LaCaja-App_Icons_lruiz-04.png">
+              </a>
+              
+            </div>
+
+            <div class="clear"></div>
+            
+            <div class="lineaseparador"></div>
+
+          </ion-item>
+        </div>
+      </ion-list>
+
+  </ion-content>
+</ion-view>
